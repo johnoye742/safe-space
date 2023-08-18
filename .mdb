@@ -1,0 +1,10 @@
+{
+  "projectName": "safe-space",
+  "meta": {
+    "type": "backend"
+  },
+  "backend": {
+    "platform": "php-laravel"
+  },
+  "hash": "9a88f7d0"
+}
