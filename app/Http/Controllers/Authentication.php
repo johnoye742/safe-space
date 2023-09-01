@@ -12,14 +12,19 @@ class Authentication extends Controller
 {
     //
     public function createAccount(Request $request) {
-        
+
         $data = $request -> validate([
             'email' => 'email|required|max:500|unique:users',
             'username' => 'required|max:200|unique:users',
             'fullname' => 'required',
             'dob' => 'date|required',
             'pwd' => 'required|min:8',
+            'pwd2' => 'required|min:8'
         ]);
+
+        if($data['pwd'] != $data['pwd2']) {
+            return redirect()->back()->withErrors(['pwd2' => 'passwords do not match'])->withInput();
+        }
 
         $options = [
             'email' => $data['email'],
@@ -43,16 +48,18 @@ class Authentication extends Controller
             'email' => 'email|required',
             'password' => 'required|min:8'
         ]);
-        
+
 
         if(Auth::attempt($data)) {
             return redirect('/enter-room');
         }
+
+        return redirect() -> back() ->withErrors(['email' => 'Credentials do not match']);
     }
 
     public function logout() {
         Auth::logout(Auth::user());
-        
+
         return redirect('/login');
     }
 }

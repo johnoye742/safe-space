@@ -22,22 +22,26 @@
                 <h1 class="text-5xl">LOGIN</h1>
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
+
+                    @foreach ($errors -> get('email') as $error)
+                        <p class="text-red-700">{{ $error }}</p>
+                    @endforeach
                     <div class="border border-gray-200 p-3 flex flex-col mt-5 rounded-lg custom-input transition-all duration-300 ease-in-out">
                         <label for="email" class="text-md text-gray-500">Email address</label>
                         <input type="email" name="email" id="email" class="outline-none w-full h-full" placeholder="johndoe@email.com">
                     </div>
 
 
-                    
-                    @foreach ($errors as $error)
-                        <p>{{ $error }}</p>
-                    @endforeach
-    
+
+
                     <div class="border border-gray-200 p-3 flex flex-col mt-5 rounded-lg custom-input transition-all duration-300 ease-in-out">
                         <label for="password" class="text-md text-gray-500">Password</label>
                         <input type="password" id="password" name="password" class="outline-none w-full h-full" placeholder="">
                     </div>
-    
+
+                    @foreach ($errors -> get('password') as $error)
+                        <p class="text-red-700">{{ $error }}</p>
+                    @endforeach
                     <button type="submit" class="px-8 py-3 bg-sky-400 text-white rounded-lg w-fit mt-5">Login</button>
                     <span class="mt-2">Don't have an account? <a href="{{ route('sign-up') }}" class="text-sky-800">Sign Up</a></span>
 
@@ -45,7 +49,7 @@
                 <div class="flex flex-row gap-4 border-t-black border-t mt-3 flex-wrap">
                     <button type="submit" class="px-5 py-3 bg-transparent border border-sky-600 cursor-pointer hover:bg-sky-600 transition-all duration-300 ease-in-out text-black rounded-lg w-fit mt-3 flex flex-row gap-2 items-center"><img src="{{ asset('icons/facebook.png') }}">  Continue with Facebook</button>
                     <button type="submit" class="px-5 py-3 bg-transparent border border-sky-600 cursor-pointer hover:bg-sky-600 transition-all duration-300 ease-in-out text-black rounded-lg w-fit mt-3 flex flex-row gap-2 items-center"><img src="{{ asset('icons/google.png') }}">  Continue with Google</button>
-                    
+
                 </div>
             </div>
         </div>

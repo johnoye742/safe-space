@@ -28,6 +28,7 @@ window.addEventListener('load', () => {
         
         
         main.append(msg)
+        main.scrollTo(0, main.offsetHeight)
         setMsg()
     });
 

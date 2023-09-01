@@ -1,15 +1,16 @@
 window.addEventListener('load', () => {
-    let toggle = document.getElementById('toggle')
+    let toggle = document.getElementById('menu-toggle')
     let nav = document.getElementById('nav')
     let cancel = document.getElementById('cancel')
-
+    console.log(toggle)
     toggle.addEventListener('click', () => {
+        console.log('clicked')
         if(nav.classList.contains('hidden')) {
             nav.classList.replace('hidden', 'lg:hidden')
             nav.classList.replace('-ml-[100%]', 'ml-0')
-            
+
         }
-        
+
     })
 
     cancel.addEventListener('click', () => {

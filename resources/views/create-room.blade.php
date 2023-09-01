@@ -28,7 +28,7 @@
                         <label for="passcode" class="text-md text-gray-500">Passcode</label>
                         <input type="text" name="passcode" id="passcode" class="outline-none w-full h-full" placeholder="">
                     </div>
-    
+
                     <button type="submit" class="px-4 py-2 bg-sky-400 text-white rounded-lg w-fit mt-5 float-right">+ Create</button>
                 </form>
             </div>
@@ -37,5 +37,9 @@
 
     <!-- SCRIPTS -->
     <livewire:scripts></livewire:scripts>
+    <script src="{{ asset('js/menu.js') }}"></script>
+    <script src="{{ asset('js/dropdown.js') }}"></script>
+    <script src="{{ asset('js/toast.js') }}"></script>
+
 </body>
 </html>

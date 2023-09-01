@@ -35,7 +35,7 @@ Route::get('/rooms/{id}', function ($id) {
         return redirect('/enter-room');
     }
     $room = Room::all() -> where('room_id', null, $id);
-    Log::alert(Auth::check());
+    Log::alert($room);
     $name = $room[0] -> name;
     return view('room', ['room_name' => $name]);
 }) -> name('room')

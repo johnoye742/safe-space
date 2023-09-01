@@ -24,36 +24,40 @@
                     @csrf
                     <div class="border border-gray-200 p-3 flex flex-col mt-5 rounded-lg custom-input transition-all duration-300 ease-in-out">
                         <label for="email" class="text-md text-gray-500">Email address</label>
-                        <input type="email" name="email" id="email" class="outline-none w-full h-full" placeholder="johndoe@email.com">
+                        <input type="email" name="email" id="email" class="outline-none w-full h-full" placeholder="johndoe@email.com" value="{{ old('email') }}">
                     </div>
-    
+
                     <div class="border border-gray-200 p-3 flex flex-col mt-5 rounded-lg custom-input transition-all duration-300 ease-in-out">
                         <label for="fullname" class="text-md text-gray-500">Full Name</label>
-                        <input type="text" name="fullname" id="fullname" class="outline-none w-full h-full" placeholder="johndoe@email.com">
+                        <input type="text" name="fullname" id="fullname" class="outline-none w-full h-full" placeholder="John Doe" value="{{ old('fname') }}">
                     </div>
-    
+
                     <div class="border border-gray-200 p-3 flex flex-col mt-5 rounded-lg custom-input transition-all duration-300 ease-in-out">
                         <label for="username" class="text-md text-gray-500">Username</label>
-                        <input type="text" name="username" id="username" class="outline-none w-full h-full" placeholder="jdoe742">
+                        <input type="text" name="username" id="username" class="outline-none w-full h-full" placeholder="jdoe742" value="{{ old('username') }}">
                     </div>
-    
+
                     <div class="border border-gray-200 p-3 flex flex-col mt-5 rounded-lg custom-input transition-all duration-300 ease-in-out">
                         <label for="date" class="text-md text-gray-500">Date Of Birth</label>
-                        <input type="date" id="date" name="dob" value="1998-09-28" class="outline-none w-full h-full">
+                        <input type="date" id="date" name="dob" value="2008-03-8" class="outline-none w-full h-full">
                     </div>
-    
+
                     <div class="border border-gray-200 p-3 flex flex-col mt-5 rounded-lg custom-input transition-all duration-300 ease-in-out">
                         <label for="password" class="text-md text-gray-500">Password</label>
-                        <input type="password" id="password" name="pwd" class="outline-none w-full h-full" placeholder="">
+                        <input type="password" id="password" name="pwd" class="outline-none w-full h-full" placeholder="" value="{{ old('pwd') }}">
                     </div>
-    
+
                     <div class="border border-gray-200 p-3 flex flex-col mt-5 rounded-lg custom-input transition-all duration-300 ease-in-out">
                         <label for="cpwd" class="text-md text-gray-500">Confirm Password</label>
                         <input type="password" id="cpwd" name="pwd2" class="outline-none w-full h-full">
                     </div>
-                    
+
+                    @foreach ($errors -> get('pwd2') as $error)
+                        <p class="text-red-700">{{ $error }}</p>
+                    @endforeach
+
                     <button type="submit" class="px-8 py-3 bg-sky-400 text-white rounded-lg w-fit mt-5">Sign Up</button>
-    
+
                     <span class="mt-2">Already have an account? <a href="{{ route('login') }}" class="text-sky-800">Login</a></span>
 
                 </form>
@@ -62,7 +66,7 @@
                 <div class="flex flex-row gap-4 border-t-black border-t mt-5 flex-wrap">
                     <button type="submit" class="px-5 py-3 bg-transparent border border-sky-600 cursor-pointer hover:bg-sky-600 transition-all duration-300 ease-in-out text-black rounded-lg w-fit mt-3 flex flex-row gap-2 items-center"><img src="{{ asset('icons/facebook.png') }}">  Continue with Facebook</button>
                     <button type="submit" class="px-5 py-3 bg-transparent border border-sky-600 cursor-pointer hover:bg-sky-600 transition-all duration-300 ease-in-out text-black rounded-lg w-fit mt-3 flex flex-row gap-2 items-center"><img src="{{ asset('icons/google.png') }}">  Continue with Google</button>
-                    
+
                 </div>
             </div>
         </div>
@@ -70,5 +74,6 @@
 
     <!-- SCRIPTS -->
     <script src="{{ asset('js/inputs.js') }}"></script>
+    <script src="{{ asset('js/menu.js') }}"></script>
 </body>
 </html>

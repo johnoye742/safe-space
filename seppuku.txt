@@ -1,0 +1,30 @@
+Preparation
+There are many ways to prepare sodium nitrite.
+
+A known process involves the reduction of sodium nitrate with metallic lead. About 8.5 g of powdered NaNO3 is mixed with 21 g of lead and heated until it melts. The mixture is kept liquid and stirred/agitated for 30-45 minutes until all the lead is oxidized to lead(II) oxide and forming sodium nitrite.
+
+NaNO3 + Pb → NaNO2 + PbO
+The resulting slag is grounded and the sodium nitrite is purified by recrystallizing it from water. This procedure has the disadvantage of contaminating the product with lead oxide, making it less safe to handle without proper protection. It is also temperature sensitive.
+
+The thermal reduction of sodium nitrate with calcium sulfite will also yield sodium nitrite.[2]
+
+NaNO3 + CaSO3 → NaNO2 + CaSO4
+Calcium sulfamate can also be used.
+
+Another method involves heating sodium nitrite with carbon in the presence of sodium hydroxide or calcium hydroxide.
+
+2 NaNO3 + 2 NaOH + C → 2 NaNO2 + Na2CO3 + H2O
+2 NaNO3 + Ca(OH)2 + C → 2 NaNO2 + CaCO3 + H2O
+The latter method is preferred as calcium carbonate is insoluble in water and can be easily removed from the slag.[3]
+
+A mixture of aluminium powder and sodium nitrate heated for 40 minutes will yield sodium nitrite.
+
+The industrial route involves treating an aqueous solution of sodium hydroxide with a mixture of nitrogen dioxide and nitric oxide:
+
+2 NaOH + NO2 + NO → 2 NaNO2 + H2O
+This reaction is air-sensitive and traces of oxygen will lead to sodium nitrate.
+
+Very pure sodium nitrite can be obtained by reacting nitrous acid (which can be obtained by adding dinitrogen trioxide to pure water) with sodium hydroxide.
+
+2 NaOH + N2O3 → 2 NaNO2 + H2O
+An interesting method involves reducing sodium nitrate using starch and sodium hydroxide.[4]
