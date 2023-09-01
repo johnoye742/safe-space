@@ -63,6 +63,8 @@ class RoomsController extends Controller
 
             if($request['annonymous'] != null)
             Session::put('annonymous', $data['annonymous']);
+            else
+            Session::put('annonymous', 'off');
 
             return redirect('/rooms'.'/'.$data['room_id']);
         }

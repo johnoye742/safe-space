@@ -55,7 +55,8 @@
                 <input type="hidden" value="{{ route('send-messages') }}" id="link">
                 <input type="hidden" value="{{ auth() -> user() -> username }}" name="username" id="username">
 
-                @if (session() -> get('annonymous') != 'checked')
+                {{ session() -> get('annonymous') }}
+                @if (session() -> get('annonymous') != 'on')
                     <input type="hidden" value="{{ auth() -> user() -> name }}" name="name" id="user_name">
                 @else
                 <input type="hidden" value="Annonymous{{ auth() -> user() -> id }}" name="name" id="user_name">

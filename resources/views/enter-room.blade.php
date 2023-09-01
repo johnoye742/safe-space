@@ -30,8 +30,8 @@
                         <input type="text" name="passcode" id="passcode" class="outline-none w-full h-full" placeholder="">
                     </div>
                     <div class="flex flex-row gap-2 p-3">
-                        <input type="checkbox" value="checked" name="annonymous" id="anon">
-                        <label for="anon" class="text-gray-500">Anonymous</label>
+                        <input type="checkbox" name="annonymous" id="anon">
+                        <label for="anon" class="text-gray-500">Annonymous</label>
                     </div>
 
                     <button type="submit" class="px-4 py-2 bg-sky-400 text-white rounded-lg w-fit mt-5 float-right">Enter</button>
