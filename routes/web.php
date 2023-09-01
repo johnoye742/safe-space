@@ -36,7 +36,7 @@ Route::get('/rooms/{id}', function ($id) {
     }
     $room = Room::all() -> where('room_id', null, $id);
     Log::alert($room);
-    $name = $room[0] -> name;
+    $name = $room -> first() -> name;
     return view('room', ['room_name' => $name]);
 }) -> name('room')
 -> middleware('auth');

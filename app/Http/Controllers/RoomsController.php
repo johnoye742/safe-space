@@ -22,12 +22,13 @@ class RoomsController extends Controller
         $options = [
             'name' => $data['room_name'],
             'creator' => $creator,
-            'room_id' => Hash::make($data['room_name']),
+            'room_id' => substr(Hash::make($data['room_name']), 0, 10),
             'passcode' => $data['passcode']
         ];
 
         $room = new Room($options);
         if($room -> save()) {
+            Session::flash('room_id', $options['room_id']);
             return redirect('/enter-room');
         }
     }
@@ -37,17 +38,17 @@ class RoomsController extends Controller
         $characters = "~!@#$%^&*()-_=+{}<>?|\\/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         $c1 = str_split($characters);
         $sb = "";
-        
+
         for ($i = 0; $i < $length; $i++) {
             $randomIndex = rand(0, count($c1) - 1);
             $sb .= $c1[$randomIndex];
         }
-        
+
         echo $sb . "\n";
     }
 
     public function enterRoom(Request $request) {
-        
+
         $data = $request -> validate([
             'room_id' => 'required',
             'passcode' => 'required',
@@ -55,7 +56,7 @@ class RoomsController extends Controller
         ]);
 
         Log::alert($request);
-        
+
         $room = Room::where('room_id', $data['room_id']) -> where('passcode', $data['passcode']) -> get();
         if($room != null) {
             Session::put('current_room', $data['room_id']);
