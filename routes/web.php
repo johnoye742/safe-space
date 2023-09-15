@@ -4,6 +4,7 @@ use App\Http\Controllers\Authentication;
 use App\Http\Controllers\Messaging;
 use App\Http\Controllers\RoomsController;
 use App\Models\Room;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
@@ -75,3 +76,9 @@ Route::post('login', [Authentication::class, 'login'])
 
 Route::post('/send-message', [Messaging::class, 'sendMessages'])
 -> name('send-messages');
+
+Route::post('/upload-file', function (Request $req) : string {
+    Log::debug($req);
+    $file = $req -> file('file');
+    return $file;
+}) -> name('upload');

@@ -15,7 +15,9 @@ class Messaging extends Controller
             'msg' => 'required',
             'channel' => 'required',
             'name' => 'nullable',
-            'username' => 'required'
+            'username' => 'required',
+            'image', 'nullable',
+            'type' => 'nullable'
         ]);
 
 
