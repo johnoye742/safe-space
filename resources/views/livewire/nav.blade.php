@@ -1,10 +1,14 @@
 <div>
-    <div class="text-white flex flex-row justify-between w-full px-8 py-5 fixed top-0">
+    <div class="bg-white text-white shadow-lg flex flex-row justify-between w-full px-8 py-5 fixed top-0 transition-all ease-in-out duration-200" id="navbar">
         <div class="flex flex-col justify-center items-center">
-            <h1 class="text-2xl">SafeSpace</h1>
+            <a href="{{ route('landing-page') }}" class="text-2xl">SafeSpace</a>
         </div>
         <ul class="lg:flex flex-row gap-5 items-center hidden ">
             <li><a href="" class="hover:text-sky-500 text-sky-300">Home</a></li>
+            @auth
+                <li><a href="" class="hover:text-sky-500">Dashboard</a></li>
+            @endauth
+
             <li><a href="" class="hover:text-sky-500">About Us</a></li>
         </ul>
         <div class="lg:flex flex-row items-center gap-3 hidden">

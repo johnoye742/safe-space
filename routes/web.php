@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Session;
 
 Route::get('/', function () {
     return view('welcome');
-});
+}) -> name('landing-page');
 
 Route::get('/test', function () {
     return view('test');

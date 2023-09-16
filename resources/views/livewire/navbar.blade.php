@@ -1,7 +1,7 @@
 <div>
     <div class="bg-white flex flex-row justify-between w-full px-8 py-5">
         <div class="flex flex-col justify-center items-center">
-            <h1 class="text-2xl">SafeSpace</h1>
+            <a href="{{ route('landing-page') }}" class="text-2xl">SafeSpace</a>
         </div>
         <ul class="lg:flex flex-row gap-5 items-center hidden ">
             <li><a href="" class="hover:text-sky-500 text-sky-600">Home</a></li>
@@ -13,7 +13,7 @@
                 <input type="search" class="bg-[#00000000] w-full" placeholder="Search">
 
             </div>
-            @if (auth() -> check() != null)
+            @auth
                 <div class="relative mr-11" id="dropdown-wrapper">
                     <img src="https://api.dicebear.com/6.x/initials/svg?seed={{ auth() -> user() -> name }}" id="toggle" class="w-12 h-12 rounded-full">
                     <div class="absolute shadow-lg rounded-lg flex-col w-28 mt-1 bg-gray-100 hidden z-30 overflow-hidden" id="dropdown">
@@ -22,16 +22,16 @@
                     </div>
                 </div>
 
-            @endif
+            @endauth
 
 
 
         </div>
 
         <div class="lg:hidden flex flex-row gap-3 justify-center">
-            @if (auth() -> check() != null)
+            @auth
                 <img src="https://api.dicebear.com/6.x/initials/svg?seed={{ auth() -> user() -> name }}" id="toggle" class="w-6 h-6 rounded-full">
-            @endif
+            @endauth
             <i class="fi fi-br-menu-burger text-2xl" id="menu-toggle"></i>
         </div>
     </div>
@@ -49,9 +49,9 @@
             <li><a href="" class="hover:text-sky-500">Dashboard</a></li>
 
             <div class="mt-5">
-                @if (auth() -> check() != null)
+                @auth
                     <li><a href="{{ route('logout') }}" class=" text-red-500">Logout</a></li>
-                @endif
+                @endauth
             </div>
         </ul>
 

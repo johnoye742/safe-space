@@ -14,15 +14,16 @@ class RoomsController extends Controller
     //
     public function createRoom(Request $request) {
         $data = $request -> validate([
-            'room_name' => 'required',
-            'passcode' => 'nullable'
+            'room_name' => 'required|unique:room,name',
+            'passcode' => 'nullable',
+            'description' => 'required'
         ]);
         Log::alert($data);
         $creator = Auth::user() -> username;
         $options = [
             'name' => $data['room_name'],
             'creator' => $creator,
-            'room_id' => substr(Hash::make($data['room_name']), 0, 10),
+            'room_id' => substr($this -> generate(), 0, 10),
             'passcode' => $data['passcode']
         ];
 
@@ -44,7 +45,7 @@ class RoomsController extends Controller
             $sb .= $c1[$randomIndex];
         }
 
-        echo $sb . "\n";
+        return $sb;
     }
 
     public function enterRoom(Request $request) {

@@ -29,6 +29,19 @@
                         <input type="text" name="passcode" id="passcode" class="outline-none w-full h-full" placeholder="">
                     </div>
 
+                    <div class="border border-gray-200 p-3 flex flex-col mt-5 rounded-lg custom-input transition-all duration-300 ease-in-out">
+                        <label for="availability" class="text-sm text-gray-500">Availability</label>
+                        <select name="availabilty">
+                            <option>Public</option>
+                            <option>Private</option>
+                        </select>
+                    </div>
+
+                    <div class="border border-gray-200 p-3 flex flex-col mt-5 rounded-lg custom-input transition-all duration-300 ease-in-out">
+                        <label for="description" class="text-md text-gray-500">Description</label>
+                        <textarea name="description" id="description" class="outline-none w-full h-full" placeholder=""></textarea>
+                    </div>
+
                     <button type="submit" class="px-4 py-2 bg-sky-400 text-white rounded-lg w-fit mt-5 float-right">+ Create</button>
                 </form>
             </div>
