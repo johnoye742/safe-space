@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ ucfirst($room_name) }} - SafeSpace</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
@@ -33,13 +34,13 @@
             </div>
         </div>
         <div class="max-h-[80vh] h-[80vh] w-full overflow-y-scroll p-6 flex flex-col !bg-no-repeat !bg-cover !bg-center" style="background: url({{ asset('images/b.jpeg') }});" id="main">
-            <div class="flex flex-row m-5 mb-1 gap-2">
+            <div class="flex flex-row mx-5 my-1 gap-2">
                 <div class="relative self-end" id="dropdown-toast">
                     <img src="https://api.dicebear.com/6.x/initials/svg?seed=Admin" class="w-5 h-5 rounded-full" id="toggle">
                     <span class="absolute shadow-lg rounded-lg flex-col w-fit mt-1 bg-slate-500 bg-opacity-70 hidden z-20 overflow-hidden px-3 py-1 text-white -left-5" id="toast">@admin</span>
                 </div>
 
-                <p class="bg-sky-500 p-3 w-fit self-start text-white rounded-lg max-w-[50%] ">Welcome to {{ $room_name }}</p>
+                <p class="bg-sky-500 p-3 w-fit self-start text-white rounded-lg max-w-[50%] break-all">Welcome to {{ $room_name }}</p>
             </div>
 
             <div class="flex flex-row m-5 gap-2">
@@ -59,7 +60,7 @@
         </div>
         <div class="self-end border border-gray-200 px-5 py-4 w-full">
 
-            <form class="w-full flex flex-row gap-3 items-center" id="msg">
+            <form class="w-full flex flex-row gap-3 items-center" id="msg" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" value="{{ strtolower(str_replace(' ', '-', $room_name)) }}" name="channel" id="roomName">
                 <input type="hidden" value="{{ route('send-messages') }}" id="link">
@@ -77,8 +78,9 @@
                 <textarea class="w-full border border-gray-200 p-2" name="msg" placeholder="Type a message..."></textarea>
 
                 <input type="file" id="image" name="file" class="hidden">
-                <label for="image"><i class="fi fi-ss-camera"></i></label>
 
+                <label for="image"><i class="fi fi-ss-camera"></i></label>
+                <input type="hidden" id="ddd" value="">
                 <button type="submit" class="rounded-full px-4 py-3 text-center text-white bg-sky-400 h-fit w-fit">
                     <i class="fi fi-ss-paper-plane-top m-0 p-0"></i>
                 </button>

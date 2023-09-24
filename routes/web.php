@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,8 @@ Route::get('/test', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $rooms = Room::all() -> where('creator', Auth::user() -> username);
+    return view('dashboard', ['rooms' => $rooms]);
 })
 -> name('dashboard') -> middleware('auth');
 
@@ -63,8 +65,9 @@ Route::post('/create-room', [RoomsController::class, 'createRoom'])
 -> name('create-room')
 -> middleware('auth');
 
-Route::get('/enter-room', function () {
-    return view('enter-room');
+Route::get('/enter-room', function (Request $request) {
+    $id = $request -> get('id');
+    return view('enter-room', ['id' => $id]);
 }) -> name('enter-room');
 
 Route::post('/enter-room', [RoomsController::class, 'enterRoom'])
@@ -89,10 +92,17 @@ Route::post('login', [Authentication::class, 'login'])
 Route::post('/send-message', [Messaging::class, 'sendMessages'])
 -> name('send-messages');
 
+Route::get('/upload', function () {
+    return view('upload');
+});
+
 Route::post('/upload-file', function (Request $req) : string {
-    Log::debug($req);
-    $file = $req -> file('file') -> store('uploads');
-    return $file;
+
+
+    $file = 'Authentication@createAccount';
+    if($req -> hasFile('file')) $file = Storage::put('public', $req -> file('file'));
+
+    return asset(Storage::url($file));
 }) -> name('upload');
 
 Route::get('/truncate', function () {
@@ -103,6 +113,6 @@ Route::get('/encr-test/{str}', function ($str) {
     return Crypt::encrypt($str);
 });
 
-Route::get('/decr-test/{str}', function ($str) {
-    return Crypt::decrypt($str);
+Route::post('/decrypt', function (Request $request) {
+    return Crypt::decryptString($request -> get('str'));
 });

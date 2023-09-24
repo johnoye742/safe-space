@@ -23,7 +23,13 @@
                     @csrf
                     <div class="border border-gray-200 p-3 flex flex-col mt-5 rounded-lg custom-input transition-all duration-300 ease-in-out">
                         <label for="id" class="text-md text-gray-500">Room Id</label>
-                        <input type="text" name="room_id" id="id" class="outline-none w-full h-full" placeholder="" value="{{ session() -> get('room_id') }}">
+                        @if ($id != null || $id == "")
+                            <input type="text" name="room_id" id="id" class="outline-none w-full h-full" placeholder="" value="{{ $id }}">
+
+                        @else
+                            <input type="text" name="room_id" id="id" class="outline-none w-full h-full" placeholder="" value="{{ session() -> get('room_id') }}">
+                        @endif
+
                     </div>
                     <div class="border border-gray-200 p-3 flex flex-col mt-5 rounded-lg custom-input transition-all duration-300 ease-in-out">
                         <label for="passcode" class="text-md text-gray-500">Passcode</label>
