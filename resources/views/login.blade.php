@@ -33,7 +33,6 @@
 
 
 
-
                     <div class="border border-gray-200 p-3 flex flex-col mt-5 rounded-lg custom-input transition-all duration-300 ease-in-out">
                         <label for="password" class="text-md text-gray-500">Password</label>
                         <input type="password" id="password" name="password" class="outline-none w-full h-full" placeholder="">
@@ -42,6 +41,10 @@
                     @foreach ($errors -> get('password') as $error)
                         <p class="text-red-700">{{ $error }}</p>
                     @endforeach
+
+                    
+                    <input type="hidden" name="next_page" value="{{ session() -> get('next_page') }}">
+
                     <button type="submit" class="px-8 py-3 bg-sky-400 text-white rounded-lg w-fit mt-5">Login</button>
                     <span class="mt-2">Don't have an account? <a href="{{ route('sign-up') }}" class="text-sky-800">Sign Up</a></span>
 

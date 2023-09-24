@@ -13,6 +13,8 @@ class Room extends Model
         'name',
         'creator',
         'room_id',
-        'passcode'
+        'passcode',
+        'description',
+        'availability'
     ];
 }

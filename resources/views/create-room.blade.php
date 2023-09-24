@@ -16,14 +16,17 @@
 
     <main class="h-full -mt-16 bg-[url('{{ asset('images/321266452_804746637965962_2076821837111370885_n.jpg') }}')]">
         <div class="h-full w-full flex flex-col justify-center items-center">
-            <div class="w-fit border border-gray-300 p-5 rounded-lg">
+            <div class="w-fit lg:w-[70%] border border-gray-300 p-5 rounded-lg">
                 <h1 class="text-2xl">Create Room</h1>
-                <form method="POST" action="{{ route('create-room') }}">
+                <form method="POST" action="{{ route('create-room') }}" id="room_form">
                     @csrf
                     <div class="border border-gray-200 p-3 flex flex-col mt-5 rounded-lg custom-input transition-all duration-300 ease-in-out">
                         <label for="title" class="text-md text-gray-500">Room Title</label>
                         <input type="text" name="room_name" id="title" class="outline-none w-full h-full" placeholder="">
                     </div>
+                    @foreach ($errors -> all() as $error)
+                    {{ $error }}
+                    @endforeach
                     <div class="border border-gray-200 p-3 flex flex-col mt-5 rounded-lg custom-input transition-all duration-300 ease-in-out">
                         <label for="passcode" class="text-md text-gray-500">Passcode</label>
                         <input type="text" name="passcode" id="passcode" class="outline-none w-full h-full" placeholder="">
@@ -31,11 +34,13 @@
 
                     <div class="border border-gray-200 p-3 flex flex-col mt-5 rounded-lg custom-input transition-all duration-300 ease-in-out">
                         <label for="availability" class="text-sm text-gray-500">Availability</label>
-                        <select name="availabilty">
+                        <select id="avail">
                             <option>Public</option>
                             <option>Private</option>
                         </select>
                     </div>
+
+                    <input type="hidden" name="availability" value="" id="availability">
 
                     <div class="border border-gray-200 p-3 flex flex-col mt-5 rounded-lg custom-input transition-all duration-300 ease-in-out">
                         <label for="description" class="text-md text-gray-500">Description</label>
@@ -50,6 +55,7 @@
 
     <!-- SCRIPTS -->
     <livewire:scripts></livewire:scripts>
+    <script src="{{ asset('js/create-room.js') }}"></script>
     <script src="{{ asset('js/menu.js') }}"></script>
     <script src="{{ asset('js/dropdown.js') }}"></script>
     <script src="{{ asset('js/toast.js') }}"></script>

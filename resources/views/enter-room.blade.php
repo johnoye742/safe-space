@@ -19,7 +19,7 @@
             <div class="w-fit border border-gray-300 p-5 rounded-lg">
                 <h1 class="text-2xl">Enter Room</h1>
                 <p class="text-red-500">{{ session() -> get('status') }}</p>
-                <form method="POST" action="">
+                <form method="POST" action="" id="room_form">
                     @csrf
                     <div class="border border-gray-200 p-3 flex flex-col mt-5 rounded-lg custom-input transition-all duration-300 ease-in-out">
                         <label for="id" class="text-md text-gray-500">Room Id</label>
@@ -42,6 +42,7 @@
 
     <!-- SCRIPTS -->
     <livewire:scripts></livewire:scripts>
+
     <script src="{{ asset('js/menu.js') }}"></script>
     <script src="{{ asset('js/dropdown.js') }}"></script>
     <script src="{{ asset('js/toast.js') }}"></script>

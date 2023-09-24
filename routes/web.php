@@ -6,6 +6,8 @@ use App\Http\Controllers\RoomsController;
 use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
@@ -47,6 +49,11 @@ Route::get('/rooms/{id}', function ($id) {
 }) -> name('room')
 -> middleware('auth');
 
+Route::get('/rooms', function(Request $req) {
+    $rooms = Room::all();
+    return $rooms;
+}) -> name('all-rooms');
+
 Route::get('/create-room', function () {
     return view('create-room');
 }) -> name('create-room')
@@ -84,6 +91,18 @@ Route::post('/send-message', [Messaging::class, 'sendMessages'])
 
 Route::post('/upload-file', function (Request $req) : string {
     Log::debug($req);
-    $file = $req -> file('file');
+    $file = $req -> file('file') -> store('uploads');
     return $file;
 }) -> name('upload');
+
+Route::get('/truncate', function () {
+    DB::table('rooms') -> truncate();
+});
+
+Route::get('/encr-test/{str}', function ($str) {
+    return Crypt::encrypt($str);
+});
+
+Route::get('/decr-test/{str}', function ($str) {
+    return Crypt::decrypt($str);
+});

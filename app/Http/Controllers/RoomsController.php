@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
@@ -13,19 +14,27 @@ class RoomsController extends Controller
 {
     //
     public function createRoom(Request $request) {
+        Log::debug($request);
         $data = $request -> validate([
-            'room_name' => 'required|unique:room,name',
+            'room_name' => 'required|unique:rooms,name',
             'passcode' => 'nullable',
-            'description' => 'required'
+            'description' => 'required',
+            'availability' => 'required',
         ]);
+
         Log::alert($data);
         $creator = Auth::user() -> username;
+
         $options = [
             'name' => $data['room_name'],
             'creator' => $creator,
-            'room_id' => substr($this -> generate(), 0, 10),
-            'passcode' => $data['passcode']
+            'room_id' => substr(Crypt::encryptString($data['room_name']), 10, 10),
+            'passcode' => $data['passcode'],
+            'description' => $data['description'],
+            'availability' => strtolower($data['availability'])
         ];
+
+
 
         $room = new Room($options);
         if($room -> save()) {

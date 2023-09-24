@@ -46,11 +46,14 @@ class Authentication extends Controller
         Log::alert('oops');
         $data = $request -> validate([
             'email' => 'email|required',
-            'password' => 'required|min:8'
+            'password' => 'required|min:8',
         ]);
 
 
         if(Auth::attempt($data)) {
+            if($request -> get('next_page') != 'null') {
+                return redirect($request -> get('next_page'));
+            }
             return redirect('/dashboard');
         }
 
