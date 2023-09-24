@@ -4,8 +4,13 @@
             <a href="{{ route('landing-page') }}" class="text-2xl">SafeSpace</a>
         </div>
         <ul class="lg:flex flex-row gap-5 items-center hidden ">
-            <li><a href="" class="hover:text-sky-500 text-sky-600">Home</a></li>
-            <li><a href="" class="hover:text-sky-500">Dashboard</a></li>
+            <li><a href="{{ route('dashboard') }}" class="hover:text-sky-500 @if ($pos == 1)
+                text-sky-600
+            @endif">Home</a></li>
+            <li><a href="{{ route('dashboard') }}" class="hover:text-sky-500 @if ($pos == 2)
+                text-sky-600
+            @endif">Rooms</a></li>
+
         </ul>
         <div class="lg:flex flex-row items-center gap-3 hidden">
             <div class="bg-gray-100 pl-5 gap-3 py-2 flex flex-row rounded-lg">

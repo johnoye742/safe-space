@@ -29,6 +29,11 @@ Route::get('/test', function () {
     return view('test');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})
+-> name('dashboard') -> middleware('auth');
+
 Route::get('/rooms/{id}', function ($id) {
     Log::debug(Session::get('current_room'));
     if(Session::get('current_room') != $id) {

@@ -34,14 +34,26 @@
 
             <div class="w-full my-5 mb-14">
                 <h1 class="text-3xl text-center">About The Developer</h1>
-                <div class="grid lg:grid-cols-4 grid-cols-1 my-5 px-12">
+                <div class="grid lg:grid-cols-4 grid-cols-1 my-5 lg:px-12 px-8 gap-5">
                     <div class="rounded-lg shadow-2xl shadow-sky-200 flex flex-col items-center">
                         <img src="{{ asset('images/321266452_804746637965962_2076821837111370885_n.jpg') }}" class="w-32 h-32 object-cover rounded-full shadow-lg shadow-gray-200">
                         <div class="p-5">
-                            <h1 class="text-2xl text-center mb-2">John Oye</h1>
+                            <h1 class="text-2xl text-center">John Oye</h1>
+                            <p class="text-lg text-gray-500 mb-2 text-center">Lead Developer</p>
                             <p class="mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia nisi quo, quae dolorem, saepe magni laboriosam repellat distinctio quaerat aperiam, nemo facilis temporibus sed necessitatibus ex aut a debitis officiis!</p>
                             <div class="text-center my-3">
                                 <a href="https://johnoye742.netlify.app" target="_blank" class="px-8 py-3 bg-sky-400 text-white rounded-lg w-fit mt-5 shadow-lg shadow-gray-300 hover:shadow-xl transition-all ease-in-out duration-200">View Portfolio</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-lg shadow-2xl shadow-sky-200 flex flex-col items-center">
+                        <img src="{{ asset('images/321266452_804746637965962_2076821837111370885_n.jpg') }}" class="w-32 h-32 object-cover rounded-full shadow-lg shadow-gray-200">
+                        <div class="p-5">
+                            <h1 class="text-2xl text-center">Fatima Usman</h1>
+                            <p class="text-lg text-gray-500 mb-2 text-center">Artist</p>
+                            <p class="mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia nisi quo, quae dolorem, saepe magni laboriosam repellat distinctio quaerat aperiam, nemo facilis temporibus sed necessitatibus ex aut a debitis officiis!</p>
+                            <div class="text-center my-3">
+
                             </div>
                         </div>
                     </div>

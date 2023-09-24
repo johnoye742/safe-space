@@ -51,7 +51,7 @@ class Authentication extends Controller
 
 
         if(Auth::attempt($data)) {
-            return redirect('/enter-room');
+            return redirect('/dashboard');
         }
 
         return redirect() -> back() ->withErrors(['email' => 'Credentials do not match']);

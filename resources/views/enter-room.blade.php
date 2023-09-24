@@ -11,7 +11,7 @@
 </head>
 <body class="h-full">
     <header>
-        <livewire:navbar></livewire:navbar>
+        <livewire:navbar :pos='2'></livewire:navbar>
     </header>
 
     <main class="h-full -mt-16 bg-[url('{{ asset('images/321266452_804746637965962_2076821837111370885_n.jpg') }}')]">

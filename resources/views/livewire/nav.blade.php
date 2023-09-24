@@ -6,7 +6,7 @@
         <ul class="lg:flex flex-row gap-5 items-center hidden ">
             <li><a href="" class="hover:text-sky-500 text-sky-300">Home</a></li>
             @auth
-                <li><a href="" class="hover:text-sky-500">Dashboard</a></li>
+                <li><a href="{{ route('dashboard') }}" class="hover:text-sky-500">Dashboard</a></li>
             @endauth
 
             <li><a href="" class="hover:text-sky-500">About Us</a></li>
