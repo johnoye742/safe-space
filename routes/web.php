@@ -25,7 +25,8 @@ use Illuminate\Support\Facades\Storage;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $rooms = Room::all();
+    return view('welcome', ['rooms' => $rooms]);
 }) -> name('landing-page');
 
 Route::get('/test', function () {
@@ -53,7 +54,7 @@ Route::get('/rooms/{id}', function ($id) {
 
 Route::get('/rooms', function(Request $req) {
     $rooms = Room::all();
-    return $rooms;
+    return view('all-rooms', ['rooms' => $rooms]);
 }) -> name('all-rooms');
 
 Route::get('/create-room', function () {

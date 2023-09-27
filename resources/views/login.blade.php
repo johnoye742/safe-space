@@ -11,7 +11,7 @@
 </head>
 <body class="h-full">
     <header>
-        <livewire:navbar></livewire:navbar>
+        @livewire('nav', ['color' => 'text-black', 'position' => 'relative'])
     </header>
 
     <main class="h-full">
@@ -42,7 +42,7 @@
                         <p class="text-red-700">{{ $error }}</p>
                     @endforeach
 
-                    
+
                     <input type="hidden" name="next_page" value="{{ session() -> get('next_page') }}">
 
                     <button type="submit" class="px-8 py-3 bg-sky-400 text-white rounded-lg w-fit mt-5">Login</button>

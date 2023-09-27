@@ -1,10 +1,18 @@
 <div>
-    <div class="bg-white text-white shadow-lg flex flex-row justify-between w-full px-8 py-5 fixed top-0 transition-all ease-in-out duration-200" id="navbar">
+    <div class="bg-white @if ($color != null || $color != "")
+       {{ $color }}
+    @else
+    text-white
+    @endif  shadow-lg flex flex-row justify-between w-full px-8 py-5 @if ($position != null)
+       {{ $position }}
+    @else
+        fixed
+    @endif  top-0 transition-all ease-in-out duration-200" id="navbar">
         <div class="flex flex-col justify-center items-center">
             <a href="{{ route('landing-page') }}" class="text-2xl">SafeSpace</a>
         </div>
         <ul class="lg:flex flex-row gap-5 items-center hidden ">
-            <li><a href="" class="hover:text-sky-500 text-sky-300">Home</a></li>
+            <li><a href="{{ route('landing-page') }}" class="hover:text-sky-500 text-sky-300">Home</a></li>
             @auth
                 <li><a href="{{ route('dashboard') }}" class="hover:text-sky-500">Dashboard</a></li>
             @endauth
@@ -18,7 +26,7 @@
 
             </div>
             @auth
-                <div class="relative mr-11" id="dropdown-wrapper">
+                <div class="relative mr-11 text-black" id="dropdown-wrapper">
                     <img src="https://api.dicebear.com/6.x/initials/svg?seed={{ auth() -> user() -> name }}" id="toggle" class="w-12 h-12 rounded-full">
                     <div class="absolute shadow-lg rounded-lg flex-col w-28 mt-1 bg-gray-100 hidden z-30 overflow-hidden" id="dropdown">
                         <a href="#" class="px-3 py-2 border-b border-b-gray-200 hover:bg-gray-200">Settings</a>

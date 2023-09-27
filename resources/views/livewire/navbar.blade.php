@@ -7,7 +7,7 @@
             <li><a href="{{ route('dashboard') }}" class="hover:text-sky-500 @if ($pos == 1)
                 text-sky-600
             @endif">Home</a></li>
-            <li><a href="{{ route('dashboard') }}" class="hover:text-sky-500 @if ($pos == 2)
+            <li><a href="{{ route('all-rooms') }}" class="hover:text-sky-500 @if ($pos == 2)
                 text-sky-600
             @endif">Rooms</a></li>
 

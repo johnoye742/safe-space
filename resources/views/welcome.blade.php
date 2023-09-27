@@ -36,7 +36,7 @@
                 <h1 class="text-3xl text-center">About The Developer</h1>
                 <div class="grid lg:grid-cols-4 grid-cols-1 my-5 lg:px-12 px-8 gap-5">
                     <div class="rounded-lg shadow-2xl shadow-sky-200 flex flex-col items-center">
-                        <img src="{{ asset('images/321266452_804746637965962_2076821837111370885_n.jpg') }}" class="w-32 h-32 object-cover rounded-full shadow-lg shadow-gray-200">
+                        <img src="{{ asset('images/me.jpeg') }}" class="w-32 h-32 object-cover rounded-full shadow-lg shadow-gray-200">
                         <div class="p-5">
                             <h1 class="text-2xl text-center">John Oye</h1>
                             <p class="text-lg text-gray-500 mb-2 text-center">Lead Developer</p>
@@ -46,7 +46,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="rounded-lg shadow-2xl shadow-sky-200 flex flex-col items-center">
+                    <div class="rounded-lg shadow-2xl shadow-sky-200 flex flex-col items-center hidden">
                         <img src="{{ asset('images/321266452_804746637965962_2076821837111370885_n.jpg') }}" class="w-32 h-32 object-cover rounded-full shadow-lg shadow-gray-200">
                         <div class="p-5">
                             <h1 class="text-2xl text-center">Fatima Usman</h1>
@@ -61,16 +61,19 @@
             </div>
 
             <div class="w-full my-5">
-                <h1 class="text-3xl text-center">Popular Rooms</h1>
-                <div class="grid lg:grid-cols-4 grid-cols-1 my-5 px-12">
-                    <div class="rounded-lg shadow-2xl shadow-sky-200 flex flex-col px-6 py-4">
-                        <h1 class="font-bold text-2xl">AA Meet</h1>
-                        <p>A group where alcohol addicted people try to recover. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat, accusamus. Neque consequuntur similique, hic iure ipsa autem saepe quo</p>
-                        <div class="flex flex-row gap-5 flex-wrap">
-                            <a href="#" class="px-8 py-3 bg-sky-400 text-white rounded-lg w-fit mt-5 shadow-lg shadow-gray-300 hover:shadow-xl transition-all ease-in-out duration-200">View</a>
-                            <a href="#" class="px-8 py-3 text-sky-400 rounded-lg w-fit mt-5 shadow-lg shadow-gray-300 hover:shadow-xl transition-all ease-in-out duration-200">Enter</a>
-                        </div>
-                    </div>
+                <h1 class="text-3xl text-center">Popular Rooms <a href="{{ route('all-rooms') }}" class="px-8 py-3 bg-red-400 text-white rounded-lg w-fit mt-5 shadow-lg shadow-gray-300 hover:shadow-xl transition-all ease-in-out duration-200">Explore</a></h1>
+                <div class="grid lg:grid-cols-4 px-12 gap-5 pt-5 grid-cols-1 mb-6">
+                    @if ($rooms == null)
+                        <p>You have no rooms created! <a href="{{ route('create-room') }}">Create one</a></p>
+
+                    @else
+                        @foreach ($rooms as $room)
+                            @livewire('room-card', ['title' => $room -> name, 'description' => $room -> description, 'room_id' => $room -> room_id])
+                            <!--  -->
+                        @endforeach
+                    @endif
+
+
                 </div>
             </div>
 
@@ -78,5 +81,6 @@
 
         <!-- SCRIPTS -->
         <script src="{{ asset('js/nav.js') }}"></script>
+        <script src="{{ asset('js/dropdown.js') }}"></script>
     </body>
 </html>
