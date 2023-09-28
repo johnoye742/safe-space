@@ -59,9 +59,9 @@ window.addEventListener('load', () => {
     let image = document.getElementById('image')
     image.addEventListener('change', async (ev) => {
         let f = new FormData(frm);
-        const imageResponse = await sendImage(f, f.get('_token'));
+        const imageResponse = await sendImage(f, 'ea771db3d1758d80d2e1550e4e832da1');
         f.append('type', 'img');
-        f.append('image', imageResponse);
+        f.set('image', imageResponse);
         f.append('msg', 'fkit');
         sendMessage(f);
         console.log(f.get('image'));
@@ -97,10 +97,11 @@ async function sendMessage(message) {
     console.log(response);
 }
 
-async function sendImage(f, csrf) {
-    let frm = new FormData();
+async function sendImage(f, key) {
+    /*let frm = new FormData();
     frm.append('image', f);
-    frm.append('_token', csrf);
+    frm.append('_token', csrf);*/
+    f.append('key', key)
     console.log(f)
 
     let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
@@ -108,17 +109,15 @@ async function sendImage(f, csrf) {
     console.log('attempting');
 
     try {
-        const response = await fetch(document.getElementById('image_link').value, {
+        const response = await fetch('https://api.imgbb.com/1/upload', {
             method: 'POST',
             body: f,
-            headers: {
-                'X-CSRF-TOKEN': csrfToken
-            }
+
         });
 
-        const data = await response.text();
-        console.log(data);
-        return data;
+        const data = await response.json();
+        console.log(data.data.url);
+        return data.data.url;
     } catch (error) {
         console.error(error);
         return ''; // Return an empty string or handle the error as needed.

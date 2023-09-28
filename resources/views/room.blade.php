@@ -77,7 +77,7 @@
 
                 <textarea class="w-full border border-gray-200 p-2" name="msg" placeholder="Type a message..."></textarea>
 
-                <input type="file" id="image" name="file" class="hidden">
+                <input type="file" id="image" name="image" class="hidden">
 
                 <label for="image"><i class="fi fi-ss-camera"></i></label>
                 <input type="hidden" id="ddd" value="">
