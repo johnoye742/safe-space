@@ -28,7 +28,7 @@
                     @endforeach
                     <div class="border border-gray-200 p-3 flex flex-col mt-5 rounded-lg custom-input transition-all duration-300 ease-in-out">
                         <label for="email" class="text-md text-gray-500">Email address</label>
-                        <input type="email" name="email" id="email" class="outline-none w-full h-full" placeholder="johndoe@email.com">
+                        <input type="email" name="email" id="email" class="outline-none w-full h-full" placeholder="johndoe@email.com" value="{{ old('email') }}">
                     </div>
 
 

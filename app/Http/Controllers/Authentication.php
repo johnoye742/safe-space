@@ -51,10 +51,10 @@ class Authentication extends Controller
 
 
         if(Auth::attempt($data)) {
-            if($request -> get('next_page') != 'null') {
-                return redirect($request -> get('next_page'));
+            if($request -> get('next_page') != null) {
+                return redirect() -> to($request -> get('next_page'));
             }
-            return redirect('/dashboard');
+            return redirect() -> route('dashboard');
         }
 
         return redirect() -> back() ->withErrors(['email' => 'Credentials do not match']);
