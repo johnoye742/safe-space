@@ -39,11 +39,11 @@ window.addEventListener('load', () => {
             msg.className = "flex flex-row-reverse w-fit self-end m-5 my-1 gap-2 max-w-[50%]"
             msg.querySelector('#toast').classList.replace('-left-5', '-left-20')
         } else {
-            msg.className = "flex flex-row w-fit m-5 gap-2 max-w-[50%]"
+            msg.className = "flex flex-row w-fit m-5 my-1 gap-2 max-w-[50%]"
         }
 
         main.append(msg)
-        main.scrollTo(0, main.offsetHeight)
+        main.scrollTo(0, main.scrollHeight)
         setMsg()
     });
 
