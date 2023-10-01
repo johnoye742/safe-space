@@ -15,7 +15,7 @@
     </header>
 
     <body>
-        <div class="px-8 py-8">
+        <div class="lg:px-8 px-5 py-8">
             <h1 class="text-2xl">All Rooms</h1>
             <div class="grid lg:grid-cols-4 gap-5 pt-5 grid-cols-1 mb-6">
                 @if ($rooms == null)
@@ -35,5 +35,6 @@
 
     <!-- SCRIPT -->
     <script src="{{ asset('js/dropdown.js') }}"></script>
+    <script src="{{ asset('js/menu.js') }}"></script>
 </body>
 </html>

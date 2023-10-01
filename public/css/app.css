@@ -503,6 +503,9 @@ video {
 .-left-5 {
   left: -1.25rem;
 }
+.bottom-0 {
+  bottom: 0px;
+}
 .right-5 {
   right: 1.25rem;
 }
@@ -511,9 +514,6 @@ video {
 }
 .top-5 {
   top: 1.25rem;
-}
-.bottom-0 {
-  bottom: 0px;
 }
 .z-20 {
   z-index: 20;
@@ -552,6 +552,12 @@ video {
 .-mt-16 {
   margin-top: -4rem;
 }
+.mb-0 {
+  margin-bottom: 0px;
+}
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
 .mb-14 {
   margin-bottom: 3.5rem;
 }
@@ -575,12 +581,6 @@ video {
 }
 .mt-5 {
   margin-top: 1.25rem;
-}
-.mb-0 {
-  margin-bottom: 0px;
-}
-.mb-10 {
-  margin-bottom: 2.5rem;
 }
 .flex {
   display: flex;
@@ -616,9 +616,6 @@ video {
 .h-full {
   height: 100%;
 }
-.h-0 {
-  height: 0px;
-}
 .max-h-\[80vh\] {
   max-height: 80vh;
 }
@@ -646,6 +643,9 @@ video {
 }
 .max-w-\[50\%\] {
   max-width: 50%;
+}
+.max-w-\[70\%\] {
+  max-width: 70%;
 }
 .cursor-pointer {
   cursor: pointer;
@@ -757,6 +757,10 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
+.bg-red-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
+}
 .bg-sky-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(125 211 252 / var(--tw-bg-opacity));
@@ -779,10 +783,6 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-.bg-red-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
 }
 .bg-opacity-70 {
   --tw-bg-opacity: 0.7;
@@ -814,10 +814,6 @@ video {
 }
 .p-6 {
   padding: 1.5rem;
-}
-.px-10 {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
 }
 .px-12 {
   padding-left: 3rem;
@@ -874,10 +870,6 @@ video {
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
-}
-.py-6 {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
 }
 .py-8 {
   padding-top: 2rem;
@@ -1094,8 +1086,18 @@ video {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .lg\:px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
   .lg\:px-12 {
     padding-left: 3rem;
     padding-right: 3rem;
+  }
+
+  .lg\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }

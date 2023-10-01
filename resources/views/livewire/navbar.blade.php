@@ -41,7 +41,7 @@
         </div>
     </div>
 
-    <div class="hidden w-full -ml-[100%] h-full fixed top-0 bg-sky-300 text-black flex-col px-5 py-12 transition-all duration-300 ease-in-out delay-300" id="nav">
+    <div class="hidden w-full -ml-[100%] h-full fixed top-0 bg-sky-300 text-black flex-col px-5 py-12 transition-all duration-300 ease-in-out delay-300 z-20" id="nav">
         <i class="fi fi-br-cross fixed top-5 right-5" id="cancel"></i>
         <div class="bg-transparent border border-black pl-5 gap-3 py-2 flex flex-row rounded-lg">
             <i class="fi fi-rr-search text-xl"></i>
@@ -50,8 +50,8 @@
         </div>
 
         <ul class="flex flex-col gap-5 mt-3">
-            <li><a href="" class="text-sky-600 hover:text-sky-600">Home</a></li>
-            <li><a href="" class="hover:text-sky-500">Dashboard</a></li>
+            <li><a href="{{ route('dashboard') }}" class="text-sky-600 hover:text-sky-600">Home</a></li>
+            <li><a href="{{ route('all-rooms') }}" class="hover:text-sky-500">Rooms</a></li>
 
             <div class="mt-5">
                 @auth

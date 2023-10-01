@@ -67,16 +67,17 @@ class RoomsController extends Controller
 
         Log::alert($request);
 
-        $room = Room::where('room_id', $data['room_id']) -> where('passcode', $data['passcode']) -> get();
-        if($room != null) {
-            Session::put('current_room', $data['room_id']);
+        $room = Room::all() -> where('room_id', '=', $data['room_id']) -> where('passcode', '=', $data['passcode']);
+        if($room -> first() != null && $room != [] && !empty($room)) {
+            Log::debug($room);
+            Session::put('current_room', $room -> first() -> room_id);
 
             if($request['annonymous'] != null)
             Session::put('annonymous', $data['annonymous']);
             else
             Session::put('annonymous', 'off');
 
-            return redirect('/rooms'.'/'.$data['room_id']);
+            return redirect('/rooms'.'/'.$room -> first() -> room_id);
         }
         return redirect() -> back();
     }

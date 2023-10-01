@@ -68,7 +68,9 @@ Route::post('/create-room', [RoomsController::class, 'createRoom'])
 
 Route::get('/enter-room', function (Request $request) {
     $id = $request -> get('id');
-    return view('enter-room', ['id' => $id]);
+    $passcode = Room::all() -> where('room_id', $id) -> first() -> passcode;
+
+    return view('enter-room', ['id' => $id, 'passcode' => $passcode]);
 }) -> name('enter-room');
 
 Route::post('/enter-room', [RoomsController::class, 'enterRoom'])

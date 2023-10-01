@@ -11,7 +11,7 @@
 </head>
 <body class="h-full">
     <header>
-        <livewire:navbar></livewire:navbar>
+        @livewire('nav', ['color' => 'text-black', 'position' => 'relative'])
     </header>
 
     <main class="h-full">

@@ -12,6 +12,8 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     </head>
     <body>
         <livewire:nav></livewire:nav>
@@ -21,7 +23,7 @@
                 <div class="">
                     <h1 class="text-6xl uppercase tracking-tighter leading-none">A place where <span class=" text-sky-200">freedom</span> truly <span class=" text-sky-200">exists</span></h1>
                     <p class="mt-1 leading-loose">Here at SafeSpace it is a true safe space where you can talk about anything freely without the fear of being watched. SafeSpace offers a ton of opportunities for safe communication giving you the ability to chat anonymously on chat rooms.</p>
-                    <div class="w-full flex flex-row gap-5">
+                    <div class="w-full flex flex-row flex-wrap gap-5">
                         <a href="{{ route('sign-up') }}" class="px-8 py-3 bg-transparent hover:bg-sky-500 hover:bg-opacity-50 border border-sky-400 text-white rounded-lg w-fit mt-5">Join Now</a>
                         <a href="" class="px-8 py-3 bg-sky-400 text-white rounded-lg w-fit mt-5">Learn More</a>
                     </div>
@@ -61,8 +63,11 @@
             </div>
 
             <div class="w-full my-5">
-                <h1 class="text-3xl text-center">Popular Rooms <a href="{{ route('all-rooms') }}" class="px-8 py-3 bg-red-400 text-white rounded-lg w-fit mt-5 shadow-lg shadow-gray-300 hover:shadow-xl transition-all ease-in-out duration-200">Explore</a></h1>
-                <div class="grid lg:grid-cols-4 px-12 gap-5 pt-5 grid-cols-1 mb-6">
+                <div class="flex flex-row flex-wrap justify-center">
+                    <h1 class="text-3xl text-center">Popular Rooms</h1>
+                    <a href="{{ route('all-rooms') }}" class="px-8 py-3 bg-red-400 text-white rounded-lg w-fit shadow-lg shadow-gray-300 hover:shadow-xl transition-all ease-in-out duration-200">Explore</a>
+                </div>
+                <div class="grid lg:grid-cols-4 lg:px-12 px-5 gap-5 pt-5 grid-cols-1 mb-6">
                     @if ($rooms == null)
                         <p>You have no rooms created! <a href="{{ route('create-room') }}">Create one</a></p>
 
@@ -82,5 +87,6 @@
         <!-- SCRIPTS -->
         <script src="{{ asset('js/nav.js') }}"></script>
         <script src="{{ asset('js/dropdown.js') }}"></script>
+        <script src="{{ asset('js/menu.js') }}"></script>
     </body>
 </html>

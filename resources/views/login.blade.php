@@ -60,5 +60,6 @@
 
     <!-- SCRIPTS -->
     <script src="{{ asset('js/inputs.js') }}"></script>
+    <script src="{{ asset('js/menu.js') }}"></script>
 </body>
 </html>

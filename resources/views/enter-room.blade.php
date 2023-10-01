@@ -33,7 +33,7 @@
                     </div>
                     <div class="border border-gray-200 p-3 flex flex-col mt-5 rounded-lg custom-input transition-all duration-300 ease-in-out">
                         <label for="passcode" class="text-md text-gray-500">Passcode</label>
-                        <input type="text" name="passcode" id="passcode" class="outline-none w-full h-full" placeholder="">
+                        <input type="text" name="passcode" id="passcode" class="outline-none w-full h-full" placeholder="" value="{{ $passcode }}">
                     </div>
                     <div class="flex flex-row gap-2 p-3">
                         <input type="checkbox" name="annonymous" id="anon">

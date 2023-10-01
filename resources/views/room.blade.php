@@ -7,7 +7,7 @@
     <title>{{ ucfirst($room_name) }} - SafeSpace</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-bold-rounded.css'>
     <livewire:styles></livewire:styles>
 </head>
 <body class="h-full bg-gray-100">
@@ -40,7 +40,7 @@
                     <span class="absolute shadow-lg rounded-lg flex-col w-fit mt-1 bg-slate-500 bg-opacity-70 hidden z-20 overflow-hidden px-3 py-1 text-white -left-5" id="toast">@admin</span>
                 </div>
 
-                <p class="bg-sky-500 p-3 w-fit self-start text-white rounded-lg max-w-[50%] break-all">Welcome to {{ $room_name }}</p>
+                <p class="bg-sky-500 p-3 w-fit self-start text-white rounded-lg max-w-[70%] break-all">Welcome to {{ $room_name }}</p>
             </div>
 
             <div class="flex flex-row m-5 gap-2">
@@ -49,7 +49,7 @@
                     <span class="absolute shadow-lg rounded-lg flex-col w-fit mt-1 bg-slate-500 bg-opacity-70 hidden z-20 overflow-hidden px-3 py-1 text-white -left-5" id="toast">@admin</span>
                 </div>
 
-                <img src="https://wallpapers.com/images/hd/aesthetic-sasuke-with-uchiha-clan-logo-m058afpp6uiykb8h.jpg" class="max-w-[50%] h-[20em] rounded-lg" alt="">
+                <img src="https://wallpapers.com/images/hd/aesthetic-sasuke-with-uchiha-clan-logo-m058afpp6uiykb8h.jpg" class="max-w-[70%] h-[20em] rounded-lg" alt="">
             </div>
 
             <!-- Unnecessary for the actual app lol -->
