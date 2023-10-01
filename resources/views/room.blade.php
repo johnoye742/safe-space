@@ -7,7 +7,8 @@
     <title>{{ ucfirst($room_name) }} - SafeSpace</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     <livewire:styles></livewire:styles>
 </head>
 <body class="h-full bg-gray-100">
