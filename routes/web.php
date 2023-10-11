@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -46,11 +47,18 @@ Route::get('/rooms/{id}', function ($id) {
         return redirect('/enter-room');
     }
     $room = Room::all() -> where('room_id', null, $id);
+    $messages = Redis::lrange('msg.'.$id);
+    Log::debug($messages);
     Log::alert($room);
     $name = $room -> first() -> name;
     return view('room', ['room_name' => $name]);
 }) -> name('room')
 -> middleware('auth');
+
+Route::get('/messages/{id}', function ($id){
+    $messages = Redis::lrange('msg.'.$id);
+    return $messages;
+});
 
 Route::get('/rooms', function(Request $req) {
     $rooms = Room::all();

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Redis;
 
 class Messaging extends Controller
 {
@@ -28,5 +29,7 @@ class Messaging extends Controller
 
 
         EventsMessaging::dispatch($data);
+
+        Redis::lpush('msg.'.$data["channel"], $data['msg']);
     }
 }

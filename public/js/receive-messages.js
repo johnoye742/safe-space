@@ -8,8 +8,20 @@ window.addEventListener('load', () => {
     let name = document.getElementById('user_name').value
     let main = document.getElementById('main')
 
-    var channel = pusher.subscribe(roomName);
-    channel.bind('messaging', async function(data) {
+
+   /* //GET messages from the database
+    let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    let form = new FormData()
+    form.append('_token', csrfToken)
+    fetch(location.origin + "/messages/"+ roomName, {
+        method: 'POST',
+        body: form
+    }).then((res) => res.text())
+    .then((response) => {
+        console.log(response)
+    })
+*/
+    let showMessages = async (data) => {
         console.log(data)
         let msg = document.createElement('div')
         if (data['type'] == 'img') {
@@ -45,6 +57,10 @@ window.addEventListener('load', () => {
         main.append(msg)
         main.scrollTo(0, main.scrollHeight)
         setMsg()
+    }
+    var channel = pusher.subscribe(roomName);
+    channel.bind('messaging', async function(data) {
+        showMessages(data)
     });
 
     let frm = document.getElementById('msg')
@@ -104,7 +120,7 @@ async function sendImage(f, key) {
     f.append('key', key)
     console.log(f)
 
-    let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
 
     console.log('attempting');
 
