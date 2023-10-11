@@ -1,3 +1,6 @@
+<?php
+use App\Models\Message;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,26 +47,37 @@
                 <p class="bg-sky-500 p-3 w-fit self-start text-white rounded-lg max-w-[70%] break-all">Welcome to {{ $room_name }}</p>
             </div>
 
-            <div class="flex flex-row m-5 gap-2">
-                <div class="relative self-end" id="dropdown-toast">
-                    <img src="https://api.dicebear.com/6.x/initials/svg?seed=Admin" class="w-5 h-5 rounded-full" id="toggle">
-                    <span class="absolute shadow-lg rounded-lg flex-col w-fit mt-1 bg-slate-500 bg-opacity-70 hidden z-20 overflow-hidden px-3 py-1 text-white -left-5" id="toast">@admin</span>
-                </div>
+            <!-- Load messages from database -->
+            @if ($messages != null)
+                @foreach ($messages as $message)
+                    @if ($message -> username == auth() -> user() -> username)
+                        <div class="flex flex-row-reverse w-fit self-end m-5 my-1 gap-2 max-w-[70%]">
+                            <div class="relative self-end" id="dropdown-toast">
+                                <img src="https://api.dicebear.com/6.x/initials/svg?seed={{ $message -> name }}" class="w-5 h-5 rounded-full" id="toggle">
+                                <span class="absolute shadow-lg rounded-lg flex-col w-fit mt-1 bg-slate-500 bg-opacity-70 hidden z-20 overflow-hidden px-3 py-1 text-white -left-5" id="toast">{{ $message -> name }}</span>
+                            </div>
+                            <p class="bg-sky-500 p-3 w-fit self-start text-white rounded-lg max-w-[70%] break-all">{{ Crypt::decryptString($message -> msg) }}</p>
+                        </div>
 
-                <img src="https://wallpapers.com/images/hd/aesthetic-sasuke-with-uchiha-clan-logo-m058afpp6uiykb8h.jpg" class="max-w-[70%] h-[20em] rounded-lg" alt="">
-            </div>
+                    @else
+                        <div class="flex flex-row w-fit m-5 my-1 gap-2 max-w-[70%]">
+                            <div class="relative self-end" id="dropdown-toast">
+                                <img src="https://api.dicebear.com/6.x/initials/svg?seed={{ $message -> name }}" class="w-5 h-5 rounded-full" id="toggle">
+                                <span class="absolute shadow-lg rounded-lg flex-col w-fit mt-1 bg-slate-500 bg-opacity-70 hidden z-20 overflow-hidden px-3 py-1 text-white -left-5" id="toast">{{ $message -> name }}</span>
+                            </div>
+                            <p class="bg-sky-500 p-3 w-fit self-start text-white rounded-lg max-w-[70%] break-all">{{ Crypt::decryptString($message -> msg) }}</p>
+                        </div>
+                    @endif
 
-            <!-- Unnecessary for the actual app lol -->
-            <div class="hidden flex-row-reverse w-fit self-end m-5 gap-2 max-w-[50%] -left-20">
-
-            </div>
+                @endforeach
+            @endif
 
         </div>
         <div class="self-end border border-gray-200 px-5 py-4 w-full">
 
             <form class="w-full flex flex-row gap-3 items-center" id="msg" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" value="{{ strtolower(str_replace(' ', '-', $room_name)) }}" name="channel" id="roomName">
+                <input type="hidden" value="{{ strtolower(str_replace(' ', '-', $room_id)) }}" name="channel" id="roomName">
                 <input type="hidden" value="{{ route('send-messages') }}" id="link">
                 <input type="hidden" value="{{ auth() -> user() -> username }}" name="username" id="username">
 

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Authentication;
 use App\Http\Controllers\Messaging;
 use App\Http\Controllers\RoomsController;
+use App\Models\Message;
 use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -47,16 +48,16 @@ Route::get('/rooms/{id}', function ($id) {
         return redirect('/enter-room');
     }
     $room = Room::all() -> where('room_id', null, $id);
-    $messages = Redis::lrange('msg.'.$id);
+    $messages = Message::all() -> where('channel', strtolower($id));
     Log::debug($messages);
     Log::alert($room);
     $name = $room -> first() -> name;
-    return view('room', ['room_name' => $name]);
+    return view('room', ['room_id' => $id, 'room_name' => $name, 'messages' => $messages]);
 }) -> name('room')
 -> middleware('auth');
 
 Route::get('/messages/{id}', function ($id){
-    $messages = Redis::lrange('msg.'.$id);
+    $messages = Message::all() -> where('channel', strtolower($id));
     return $messages;
 });
 
@@ -119,7 +120,7 @@ Route::post('/upload-file', function (Request $req) : string {
 }) -> name('upload');
 
 Route::get('/truncate', function () {
-    DB::table('rooms') -> truncate();
+    DB::table('messages') -> truncate();
 });
 
 Route::get('/encr-test/{str}', function ($str) {
