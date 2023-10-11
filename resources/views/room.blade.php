@@ -64,11 +64,11 @@ use App\Models\Message;
                                 <img src="https://api.dicebear.com/6.x/initials/svg?seed={{ $message -> name }}" class="w-5 h-5 rounded-full" id="toggle">
                                 <span class="absolute shadow-lg rounded-lg flex-col w-fit mt-1 bg-slate-500 bg-opacity-70 hidden z-20 overflow-hidden px-3 py-1 text-white -left-5" id="toast">{{ $message -> name }}</span>
                             </div>
-                            <p class="bg-sky-500 p-3 w-fit self-start text-white rounded-lg max-w-[70%] break-all">{{ Crypt::decryptString($message -> msg) }}</p>
+                            <p class="bg-sky-500 p-3 w-full self-start text-white rounded-lg break-all">{{ Crypt::decryptString($message -> msg) }}</p>
                         </div>
 
                     @elseif ($message -> type == 'img' || $message -> username != auth() -> user() -> username)
-                        <div class="flex flex-row w-fit m-5 my-1 gap-2 max-w-[70%]">
+                        <div class="flex flex-row m-5 my-1 gap-2 max-w-[70%]">
                             <div class="relative self-end" id="dropdown-toast">
                                 <img src="https://api.dicebear.com/6.x/initials/svg?seed={{ $message -> name }}" class="w-5 h-5 rounded-full" id="toggle">
                                 <span class="absolute shadow-lg rounded-lg flex-col w-fit mt-1 bg-slate-500 bg-opacity-70 hidden z-20 overflow-hidden px-3 py-1 text-white -left-5" id="toast">{{ $message -> name }}</span>
@@ -91,7 +91,7 @@ use App\Models\Message;
                                 <img src="https://api.dicebear.com/6.x/initials/svg?seed={{ $message -> name }}" class="w-5 h-5 rounded-full" id="toggle">
                                 <span class="absolute shadow-lg rounded-lg flex-col w-fit mt-1 bg-slate-500 bg-opacity-70 hidden z-20 overflow-hidden px-3 py-1 text-white -left-5" id="toast">{{ $message -> name }}</span>
                             </div>
-                            <p class="bg-sky-500 p-3 w-fit self-start text-white rounded-lg max-w-[70%] break-all">{{ Crypt::decryptString($message -> msg) }}</p>
+                            <p class="bg-sky-500 p-3 w-full self-start text-white rounded-lg break-all">{{ Crypt::decryptString($message -> msg) }}</p>
                         </div>
                     @endif
 
