@@ -67,7 +67,9 @@ Route::post('/create-room', [RoomsController::class, 'createRoom'])
 -> middleware('auth');
 
 Route::get('/enter-room', function (Request $request) {
+
     $id = $request -> get('id');
+
     $passcode = Room::all() -> where('room_id', $id) -> first() -> passcode;
 
     return view('enter-room', ['id' => $id, 'passcode' => $passcode]);

@@ -39,7 +39,7 @@ class RoomsController extends Controller
         $room = new Room($options);
         if($room -> save()) {
             Session::flash('room_id', $options['room_id']);
-            return redirect('/enter-room');
+            return redirect('/enter-room?id='.$options['room_id']);
         }
     }
 
