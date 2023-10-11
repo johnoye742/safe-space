@@ -12,6 +12,14 @@ use App\Models\Message;
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
     <livewire:styles></livewire:styles>
 </head>
 <body class="h-full bg-gray-100">
@@ -57,6 +65,24 @@ use App\Models\Message;
                                 <span class="absolute shadow-lg rounded-lg flex-col w-fit mt-1 bg-slate-500 bg-opacity-70 hidden z-20 overflow-hidden px-3 py-1 text-white -left-5" id="toast">{{ $message -> name }}</span>
                             </div>
                             <p class="bg-sky-500 p-3 w-fit self-start text-white rounded-lg max-w-[70%] break-all">{{ Crypt::decryptString($message -> msg) }}</p>
+                        </div>
+
+                    @elseif ($message -> type == 'img' || $message -> username != auth() -> user() -> username)
+                        <div class="flex flex-row w-fit m-5 my-1 gap-2 max-w-[70%]">
+                            <div class="relative self-end" id="dropdown-toast">
+                                <img src="https://api.dicebear.com/6.x/initials/svg?seed={{ $message -> name }}" class="w-5 h-5 rounded-full" id="toggle">
+                                <span class="absolute shadow-lg rounded-lg flex-col w-fit mt-1 bg-slate-500 bg-opacity-70 hidden z-20 overflow-hidden px-3 py-1 text-white -left-5" id="toast">{{ $message -> name }}</span>
+                            </div>
+                            <img src="{{ $data -> image }}" class="w-full h-[20em] rounded-lg object-cover" alt="">
+                        </div>
+
+                    @elseif ($message -> type == 'img' || $message -> username == auth() -> user() -> username)
+                        <div class="flex flex-row-reverse w-fit self-end m-5 my-1 gap-2 max-w-[70%]">
+                            <div class="relative self-end" id="dropdown-toast">
+                                <img src="https://api.dicebear.com/6.x/initials/svg?seed={{ $message -> name }}" class="w-5 h-5 rounded-full" id="toggle">
+                                <span class="absolute shadow-lg rounded-lg flex-col w-fit mt-1 bg-slate-500 bg-opacity-70 hidden z-20 overflow-hidden px-3 py-1 text-white -left-5" id="toast">{{ $message -> name }}</span>
+                            </div>
+                            <img src="{{ $data -> image }}" class="w-full h-[20em] rounded-lg object-cover" alt="">
                         </div>
 
                     @else
