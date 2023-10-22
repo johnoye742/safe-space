@@ -7,8 +7,6 @@ use App\Models\Message;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="og:title" content="{{ '#' . ucfirst($room_name) }}">
-    <meta name="og:description" content="{{ $descr }}">
     <title>{{ ucfirst($room_name) }} - SafeSpace</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
