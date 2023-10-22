@@ -1,7 +1,7 @@
 <div>
     <div class="bg-white flex flex-row justify-between w-full px-8 py-5">
         <div class="flex flex-col justify-center items-center">
-            <a href="{{ route('landing-page') }}" class="text-2xl">SafeSpace</a>
+            <a href="{{ route('landing-page') }}" class="text-2xl text-blue-800 inline-flex items-center"><img src="{{ asset('favicon.ico') }}" class="w-6 h-6 rounded-full"> <span>afeSpace</span></a>
         </div>
         <ul class="lg:flex flex-row gap-5 items-center hidden ">
             <li><a href="{{ route('dashboard') }}" class="hover:text-sky-500 @if ($pos == 1)

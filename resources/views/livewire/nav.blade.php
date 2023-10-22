@@ -9,7 +9,7 @@
         fixed
     @endif  top-0 transition-all ease-in-out duration-200" id="navbar">
         <div class="flex flex-col justify-center items-center">
-            <a href="{{ route('landing-page') }}" class="text-2xl">SafeSpace</a>
+            <a href="{{ route('landing-page') }}" class="text-2xl inline-flex items-center"><img src="{{ asset('favicon.ico') }}" class="w-6 h-6 rounded-full"> <span>afeSpace</span></a>
         </div>
         <ul class="lg:flex flex-row gap-5 items-center hidden ">
             <li><a href="{{ route('landing-page') }}" class="hover:text-sky-500 text-sky-300">Home</a></li>

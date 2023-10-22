@@ -3,6 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Here at SafeSpace it is a true safe space where you can talk about anything freely without the fear of being watched. SafeSpace offers a ton of opportunities for safe communication giving you the ability to chat anonymously on chat rooms.">
+        <meta name="robot" content="index, follow">
+        <meta name="og:title" content="SafeSpace: Internet of The Free">
+        <meta name="og:description" content="Here at SafeSpace it is a true safe space where you can talk about anything freely without the fear of being watched. SafeSpace offers a ton of opportunities for safe communication giving you the ability to chat anonymously on chat rooms.">
+        <meta name="og:image" content="{{ asset('favicon.ico') }}">
 
         <title>SafeSpace</title>
 

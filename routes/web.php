@@ -52,7 +52,7 @@ Route::get('/rooms/{id}', function ($id) {
     Log::debug($messages);
     Log::alert($room);
     $name = $room -> first() -> name;
-    return view('room', ['room_id' => $id, 'room_name' => $name, 'messages' => $messages]);
+    return view('room', ['room_id' => $id, 'room_name' => $name, 'messages' => $messages, 'descr' => $room -> description]);
 }) -> name('room')
 -> middleware('auth');
 
