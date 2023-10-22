@@ -36,7 +36,10 @@
 
                 @else
                     @foreach ($rooms as $room)
-                        @livewire('room-card', ['title' => $room -> name, 'description' => $room -> description, 'room_id' => $room -> room_id])
+                        @if ($room -> availability == "public")
+                            @livewire('room-card', ['title' => $room -> name, 'description' => $room -> description, 'room_id' => $room -> room_id])
+                        @endif
+
                         <!--  -->
                     @endforeach
                 @endif
