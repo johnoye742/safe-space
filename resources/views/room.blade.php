@@ -67,7 +67,7 @@ use App\Models\Message;
                             <p class="bg-sky-500 p-3 w-full self-start text-white rounded-lg break-all">{{ Crypt::decryptString($message -> msg) }}</p>
                         </div>
 
-                    @elseif ($message -> type == 'img' || $message -> username != auth() -> user() -> username)
+                    @elseif ($message -> type == 'img' && $message -> username != auth() -> user() -> username)
                         <div class="flex flex-row m-5 my-1 gap-2 max-w-[70%]">
                             <div class="relative self-end" id="dropdown-toast">
                                 <img src="https://api.dicebear.com/6.x/initials/svg?seed={{ $message -> name }}" class="w-5 h-5 rounded-full" id="toggle">
@@ -76,7 +76,7 @@ use App\Models\Message;
                             <img src="{{ $data -> image }}" class="w-full h-[20em] rounded-lg object-cover" alt="">
                         </div>
 
-                    @elseif ($message -> type == 'img' || $message -> username == auth() -> user() -> username)
+                    @elseif ($message -> type == 'img' && $message -> username == auth() -> user() -> username)
                         <div class="flex flex-row-reverse w-fit self-end m-5 my-1 gap-2 max-w-[70%]">
                             <div class="relative self-end" id="dropdown-toast">
                                 <img src="https://api.dicebear.com/6.x/initials/svg?seed={{ $message -> name }}" class="w-5 h-5 rounded-full" id="toggle">
